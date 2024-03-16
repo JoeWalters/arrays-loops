@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Arrays</title>
+        <!-- <script type="text/javascript" src="index.js"></script> -->
+    </head>
+
+    <p> Arrays</p>
+    <p id="demo"></p>
+    <p id="listdemo"></p>
+    <p id="foreach"></p>
+    <p>If you use a named index when accessing an array, JavaScript will redefine the array to a standard object, and some array methods and properties will produce undefined or incorrect results.</p>
+    <p id="array2object"></p>
+    <p id="arraycheck">first array check</p>
+    <p id="arraycheck2">second array check</p>
+    <p id="tostring"></p>
+    <p id="arrayat"></p>
+    <p id="arrayjoin"></p>
+    <p id="arraypop01"></p>
+    <p id="arraypop02"></p>
+    <p id="arraypush"></p>
+    <p id="arrayshift"></p>
+    <p id="arrayunshift"></p>
+    <p id="changeelement"></p>
+    <p id="arraymerge"></p>
+    <p id="copywithin"></p>
+    <p id="arraysplice"></p>
+
+<script>
+    const array_name05 = ["item1", "item2", "item3"];
+    //Access the full array
+    document.getElementById("demo").innerHTML = array_name05;
+
+
+    let length = array_name05.length
+    console.log(length)
+    let text="<ul>";
+    for (let i = 0; i < length; i++) {
+        text += "<li>" + array_name05[i] + "</li>";
+    }
+    text += "</ul>";
+    document.getElementById("listdemo").innerHTML = text;
+
+
+    array_name05.push("Lemon");
+    let text01 = "<ul>";
+    array_name05.forEach(myFunction);
+    text += "</ul>";
+
+    function myFunction(value) {
+        text01 += "<li>" + value + "</li>";
+    }
+    document.getElementById("foreach").innerHTML = text01;
+
+    const person = [];
+    person["firstName"] = "John";
+    person["lastName"]  = "Doe";
+    person["age"]       = 46; 
+    document.getElementById("array2object").innerHTML = 
+    person[0] + " " + person.length;
+
+
+    document.getElementById("arraycheck").innerHTML = Array.isArray(array_name05);
+
+
+    document.getElementById("arraycheck2").innerHTML = array_name05 instanceof Array;
+
+
+    //Tostring
+    document.getElementById("tostring").innerHTML = array_name05.toString();
+
+    //arrayAt num
+    let oneItem = array_name05.at(2);
+    let oneItem02 = array_name05[2];
+    document.getElementById("arrayat").innerHTML = oneItem + " " + oneItem02;
+
+
+    //array join
+    document.getElementById("arrayjoin").innerHTML = array_name05.join(" * ");
+
+    
+    //array pop
+    document.getElementById("arraypop01").innerHTML = array_name05;
+    array_name05.pop();
+    document.getElementById("arraypop02").innerHTML = array_name05;
+
+
+    
+    //array push
+    array_name05.push("Apple");
+    document.getElementById("arraypush").innerHTML = array_name05;
+
+
+    //array shift
+    array_name05.shift();
+    document.getElementById("arrayshift").innerHTML = array_name05;
+
+
+    //array unshift
+    array_name05.unshift("newitem1");
+    document.getElementById("arrayunshift").innerHTML = array_name05;
+
+
+    //array change element
+    array_name05[1] = "Kiwi";
+    document.getElementById("changeelement").innerHTML = array_name05;
+
+    //array delete element
+    //delete array[1];
+
+    //Array Merge
+    const myGirls = ["Cecilie", "Lone"];
+    const myBoys  = ["Emil", "Tobias", "Linus"];
+
+    const myChildren = myGirls.concat(myBoys);
+    document.getElementById("arraymerge").innerHTML = myChildren;
+
+
+    //Array copy within
+    array_name05.copyWithin(2, 0);
+    document.getElementById("copywithin").innerHTML = array_name05;
+
+
+    //Array splice
+    array_name05.splice(2, 0, "Lemon", "Kiwi");
+    document.getElementById("arraysplice").innerHTML = array_name05;
+
+</script>
+</html>
